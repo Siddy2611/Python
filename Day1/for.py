@@ -20,7 +20,7 @@ for i in range(0,21,2):
 
 
 
-
+# - Take a number as input and print its table
 num=int(input("Enter your preffered number: "))
 print(f"Multipication table of {num}")
 for i in range(num,num*10+1,num):
