@@ -17,6 +17,11 @@
 # details(age=21,name="Sid") #Keyword arguments
 
 
+def add(a,b=20):
+    return a+b
+
+print(add(20)) #if used return then when calling function have to use print
+
 
 def reverse(str):
     rev=""
