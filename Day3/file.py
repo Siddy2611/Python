@@ -113,16 +113,20 @@ def deletefile():
     else:
         print("File doesn't exist")
 
-
-print("1. Create file\n2. Read file\n3. Update file\n4. Delete file")
-check = int(input("Enter choice: "))
-if check == 1:
-    createfile()
-elif check == 2:
-    readfile()
-elif check == 3:
-    updatefile()
-elif check == 4:
-    deletefile()
-else:
-    print("Incorrect choice")
+while True:
+    print("\n\n------------------CRUD Operations----------------------\n\n")
+    print("\n1. Create file\n2. Read file\n3. Update file\n4. Delete file\n5.Exit")
+    check = int(input("Enter choice: "))
+    if check == 1:
+        createfile()
+    elif check == 2:
+        readfile()
+    elif check == 3:
+        updatefile()
+    elif check == 4:
+        deletefile()
+    elif check==5:
+        print("Exiting")
+        break
+    else:
+        print("Incorrect choice")
