@@ -1,0 +1,192 @@
+/* Reset / base */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  color: black;
+  background: #F5F5DC;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  overflow-x: hidden; 
+}
+
+/* HERO */
+.main-container {
+  height: 100vh;
+  position: relative;
+}
+.logo-container, .face-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face-container { display: none; }
+.logo {
+  border-radius: 50%;
+  object-fit: cover;
+  animation: zoomOut 2s ease-out forwards, rotateClockwise 10s linear infinite;
+  cursor: pointer;
+}
+
+.face { position: relative; width: 50vw; height: 50vw; }
+.eye { position: absolute; width: 25%; height: 25%; }
+.eye.left { top: 30%; left: 20%; }
+.eye.right { top: 30%; right: 20%; }
+.logo-eye { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.eyebrow { position: absolute; width: 20%; height: 4%; top: 25%; }
+.eyebrow.left { left: 20%; } 
+.eyebrow.right{ right: 20%; }
+.mouth { position: absolute; top: 55%; left: 30%; width: 40%; height: 8%; }
+@keyframes zoomOut { from { transform: scale(2); width: 70vw; height: 70vw; } to { transform: scale(1); width: 35vw; height: 35vw; } }
+@keyframes rotateClockwise { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+.down-arrow { position: absolute; bottom: 20px; left: 20px; width: 80px; height: 80px; cursor:pointer; animation: pulse 2s infinite; z-index:20; }
+@keyframes pulse { 0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)} }
+
+/* CONTENT / STACK */
+.content {
+  position: relative;
+  min-height: calc(200vh + 1200px);
+}
+
+.stack-container {
+  position: sticky;
+  top: 80px;
+  height: 700px;
+  width: 500px;
+  margin: 40px auto;
+  overflow: visible;
+  z-index: 40;
+  pointer-events: none;
+}
+
+/* Cards - fixed height so same size regardless of text */
+.stack-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 310px;
+  border-radius: 12px;
+  box-shadow: 0 18px 30px rgba(0,0,0,0.25);
+  padding: 20px;
+  font-size: 25px;
+  font-weight: 600;
+  color: black;
+  transform: translateY(100vh) rotate(-2deg);
+  transition: transform 0.12s linear;
+  line-height: 1.4em;
+  background-image: repeating-linear-gradient(#000000 0px, #000000 0px, transparent 1px, transparent 29.5px);
+  background-blend-mode: multiply;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+/* Top card as part of stack animation but starting in center */
+.top-card {
+  transform: translateY(0) rotate(-2deg) !important;
+}
+
+
+
+/* Notepad wrapper */
+.notepad-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 40px; 
+  margin: 0;       
+}
+
+.paper {
+  width: 360px;
+  min-height: 540px;
+  padding: 50px 25px 30px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background-color: white;
+  background-image: repeating-linear-gradient(#000000 0px, #000000 0px, transparent 1px, transparent 29.5px);
+}
+
+.paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: radial-gradient(circle at 8px 15px, hsl(280, 21%, 95%) 6px, transparent 7px) repeat-x;
+  background-size: 20px 30px;
+}
+
+.mission {
+  background-color: #c0415b;
+  transform: rotate(-6deg);
+}
+
+.vision {
+  background-color: rgb(255, 255, 255);
+  transform: rotate(4deg);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+p {
+  color: rgb(8, 8, 6);
+  font-size: 24px;
+}
+.circle {
+  position: absolute;
+  top: 40px;
+  left: -10px;
+  width: 260px;
+  height: 50px;
+  border: 3px solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+  transform: rotate(-5deg);
+}
+
+.underline {
+  border-bottom: 2px solid red;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.typewriter {
+  font-family: "Courier New", monospace;
+  font-size: 0.8em;
+  margin-top: 40px;
+  display: block;
+}
+
+.stamp {
+  font-family: "Courier New", monospace;
+  font-size: 0.8em;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 2px 6px;
+  display: inline-block;
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+
+/* responsive */
+@media (max-width: 520px) {
+  .stack-container { width: 92%; }
+  .stack-card { height: 170px; }
+  .face { width: 70vw; height: 70vw; }
+}

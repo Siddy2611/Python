@@ -1,0 +1,218 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission & Vision</title>
+<style>
+body {
+    margin: 0;
+    background-color: #cfa8e4;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 40px;
+}
+
+.paper {
+    width: 300px;
+    min-height: 440px;
+    padding: 50px 25px 30px;
+    position: relative;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-image: repeating-linear-gradient(#ccc 0px, #ccc 1px, transparent 1px, transparent 28px);
+}
+
+.paper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: radial-gradient(circle at 8px 15px, #cfa8e4 6px, transparent 7px) repeat-x;
+    background-size: 20px 30px;
+}
+
+.mission {
+    background-color: #e9dfd3;
+    transform: rotate(-6deg);
+}
+
+.vision {
+    background-color: white;
+    transform: rotate(4deg);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.circle {
+    position: absolute;
+    top: 40px;
+    left: -10px;
+    width: 260px;
+    height: 50px;
+    border: 3px solid rgba(0,0,0,0.2);
+    border-radius: 50%;
+    transform: rotate(-5deg);
+}
+
+.underline {
+    border-bottom: 2px solid red;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.typewriter {
+    font-family: "Courier New", monospace;
+    font-size: 0.8em;
+    margin-top: 40px;
+    display: block;
+}
+
+.stamp {
+    font-family: "Courier New", monospace;
+    font-size: 0.8em;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 2px 6px;
+    display: inline-block;
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<div class="paper mission">
+    <div class="circle"></div>
+    <h2>Our Mission</h2>
+    <p>Amplify the voices of women and gender-diverse people. Centralise access. Platform women’s critical roles throughout history.</p>
+    <span class="typewriter">WITH RESPECT AND URGENCY,<br>MADAM SPEAKER</span>
+</div>
+
+<div class="paper vision">
+    <h2><span class="underline">Our Vision</span></h2>
+    <p>Set the record straight. End the invisibility. Learn from our collective history. Shape the future.</p>
+    <div class="stamp">MADE BY WOMEN</div>
+</div>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One-by-One Horizontal Cards on Scroll</title>
+<style>
+  body {
+    margin: 0;
+    background: #111;
+    font-family: sans-serif;
+  }
+
+  .scroll-section {
+    height: 500vh; /* enough height for all cards */
+  }
+
+  .sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111;
+  }
+
+  .horizontal-track {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    transition: transform 0.3s ease-out;
+  }
+
+  .card {
+    width: 300px;
+    height: 400px;
+    background: #222;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 1rem;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-section" id="scrollSection">
+  <div class="sticky-container">
+    <div class="horizontal-track" id="track">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800" alt="">
+        <div class="card-content"><h3>Mountain</h3></div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=800" alt="">
+        <div class="card-content"><h3>City</h3></div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?w=800" alt="">
+        <div class="card-content"><h3>Forest</h3></div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" alt="">
+        <div class="card-content"><h3>Ocean</h3></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const track = document.getElementById('track');
+  const section = document.getElementById('scrollSection');
+  const cards = track.querySelectorAll('.card').length;
+  const cardWidth = 300 + 32; // width + gap (2rem = 32px)
+
+  // Total scroll height mapping
+  const totalScrollHeight = (cards - 1) * window.innerHeight;
+
+  window.addEventListener('scroll', () => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight - window.innerHeight;
+    const scrollY = window.scrollY - sectionTop;
+
+    if (scrollY >= 0 && scrollY <= sectionHeight) {
+      const cardIndex = Math.round((scrollY / totalScrollHeight) * (cards - 1));
+      track.style.transform = `translateX(${-cardIndex * cardWidth}px)`;
+    }
+  });
+</script>
+
+</body>
+</html>

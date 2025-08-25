@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Logo with Cameras</title>
+    <link rel="stylesheet" href="checking.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="logo-container">
+            <img class="logo" src="nemCircle.png" alt="Logo">
+        </div>
+        <div class="face-container">
+            <div class="face">
+                <div class="eye left">
+                    <img src="nemCircle.png" alt="Left Eye" class="logo-eye">
+                </div>
+                <div class="eye right">
+                    <img src="nemCircle.png" alt="Right Eye" class="logo-eye">
+                </div>
+                <svg class="eyebrow left" viewBox="0 0 100 20">
+                    <path id="eyebrow-left-path" d="M0 10 H100" fill="none" stroke="maroon" stroke-width="6">
+                </svg>
+                <svg class="eyebrow right" viewBox="0 0 100 20">
+                    <path id="eyebrow-right-path" d="M0 10 H100" fill="none" stroke="maroon" stroke-width="6">
+                </svg>
+                <svg class="mouth" viewBox="0 0 100 30">
+                    <path id="mouth-path" d="M10 15 L90 15" fill="none" stroke="maroon" stroke-width="5">
+                </svg>
+            </div>
+        </div>
+        <img class="down-arrow" src="down.png" alt="Scroll down">
+    </div>
+    <div class="flashcards-container">
+        <div class="flashcard card-1">Feature 1</div>
+        <div class="flashcard card-2">Feature 2</div>
+        <div class="flashcard card-3">Feature 3</div>
+        <div class="flashcard card-4">Feature 4</div>
+    </div>
+    <audio id="camera-sound" src="click2.mp3" preload="auto"></audio>
+    <script src="checks.js"></script>
+</body>
+</html>
